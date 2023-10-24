@@ -1,2 +1,2 @@
-# x16-compiling-basic
+# blitz-basic
 A semicompiling BASIC for the Commander X16
