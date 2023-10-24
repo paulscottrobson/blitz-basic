@@ -42,20 +42,19 @@ ROOTDIR =  $(dir $(realpath $(lastword $(MAKEFILE_LIST))))..$(S)
 BINDIR = $(ROOTDIR)bin$(S)
 RELEASEDIR = $(ROOTDIR)release$(S)
 SRCDIR = $(ROOTDIR)source$(S)
-CSCRIPTS = $(SRCDIR)common-scripts$(S)
-CSOURCE =  $(SRCDIR)common-source$(S)
+CSCRIPTS = $(SRCDIR)scripts$(S)
 #
 #		Current applications.
 # 
 ASM = 64tass -q -c -Wall -o build$(S)code.prg -L build$(S)code.lst -l build$(S)code.lbl
 PYTHON = python3
 EMULATOR = $(BINDIR)x16emu$(APPSTEM) -scale 2 -debug -zeroram -dump R
-EXECUTE = $(CDEL) dump*.bin ; $(EMULATOR) -prg build$(S)code.prg,801 -run
-EXEBASIC = $(CDEL) dump*.bin ; $(EMULATOR) -prg build$(S)code.prg -run
-COMBASIC = $(EMULATOR) -prg $(ROOTDIR)source$(S)application$(S)BLITZ.PRG -run
-QEXECUTE = $(EXECUTE) -testbench
-FAST = -warp
-MAKEOPTS = --no-print-directory
+#EXECUTE = $(CDEL) dump*.bin ; $(EMULATOR) -prg build$(S)code.prg,801 -run
+#EXEBASIC = $(CDEL) dump*.bin ; $(EMULATOR) -prg build$(S)code.prg -run
+#COMBASIC = $(EMULATOR) -prg $(ROOTDIR)source$(S)application$(S)BLITZ.PRG -run
+#QEXECUTE = $(EXECUTE) -testbench
+#FAST = -warp
+#MAKEOPTS = --no-print-directory
 #
 #		Export path to the common scripts.
 #
@@ -70,3 +69,4 @@ endif
 ifndef VERBOSE
 #.SILENT:
 endif
+
