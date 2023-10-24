@@ -22,9 +22,47 @@
 ; ************************************************************************************************
 
 ROM1_ifloat_reset:               ; ***** ifloat.reset() *****
-
 		lda 	#$FF						; stack always points to TOS.
 		sta 	NStackPointer
+		rts
+
+; ************************************************************************************************
+;
+;							  		Push a zero on the stack
+;
+; ************************************************************************************************
+
+ROM1_ifloat_push_zero:           ; ***** ifloat.push.zero() *****
+		lda 	#0
+
+; ************************************************************************************************
+;
+;							  Push a byte constant A on the stack
+;
+; ************************************************************************************************
+
+ROM1_ifloat_push_byte:           ; ***** ifloat.push.byte() *****
+		inc 	NStackPointer 				; access next stack position
+		ldx 	NStackPointer
+		sta 	NSMantissa0,x 				; set up the mantissa
+		stz 	NSMantissa1,x
+		stz 	NSMantissa1,x
+		stz 	NSMantissa1,x
+		stz 	NSExponent,x 				; set the exponent to zero and status to constant.
+		stz 	NSStatus,x
+		rts
+
+; ************************************************************************************************
+;
+;							  				Negate TOS
+;
+; ************************************************************************************************
+
+ROM1_ifloat_negate:              ; ***** ifloat.negate() *****
+		ldx		NStackPointer
+		lda 	NSStatus,x
+		eor 	#$01
+		sta 	NSStatus,x
 		rts
 
 		.send code

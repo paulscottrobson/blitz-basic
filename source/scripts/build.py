@@ -3,7 +3,7 @@
 #
 #		Name:		build.py
 #		Purpose:	Construct a library and link file 
-#		Created:	11th April 2023
+#		Date :		24th October 2023
 #		Reviewed: 	No
 #		Author:		Paul Robson (paul@robsons.org.uk)
 #

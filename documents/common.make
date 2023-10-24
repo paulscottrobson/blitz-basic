@@ -47,10 +47,10 @@ CSCRIPTS = $(SRCDIR)scripts$(S)
 #
 #		Current applications.
 # 
-ASM = 64tass -q -c -Wall -o build$(S)code.prg -L build$(S)code.lst -l build$(S)code.lbl
+ASM = 64tass -q -c -Wall -o build$(S)code.bin -L build$(S)code.lst -l build$(S)code.lbl
 PYTHON = python3
 EMULATOR = $(BINDIR)x16emu$(APPSTEM) -scale 2 -debug -zeroram -dump R
-#EXECUTE = $(CDEL) dump*.bin ; $(EMULATOR) -prg build$(S)code.prg,801 -run
+EXECUTE = $(CDEL) dump*.bin ; $(EMULATOR) -prg build$(S)code.bin,1000 -run
 #EXEBASIC = $(CDEL) dump*.bin ; $(EMULATOR) -prg build$(S)code.prg -run
 #COMBASIC = $(EMULATOR) -prg $(ROOTDIR)source$(S)application$(S)BLITZ.PRG -run
 #QEXECUTE = $(EXECUTE) -testbench

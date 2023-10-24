@@ -30,15 +30,15 @@ StackSize = 8
 ;
 NSStatus:
 			.fill 		StackSize
-NSMantissa:
+NSExponent:
 			.fill 		StackSize
-NSExponent0:	
+NSMantissa0:	
 			.fill 		StackSize
-NSExponent1:	
+NSMantissa1:	
 			.fill 		StackSize
-NSExponent2:	
+NSMantissa2:	
 			.fill 		StackSize
-NSExponent3:	
+NSMantissa3:	
 			.fill 		StackSize
 			
 NStackPointer:								; current numeric stack pointer.

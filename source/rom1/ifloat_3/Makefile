@@ -23,7 +23,10 @@ LIBNAME = ifloat
 all:  test
 
 test : build
-	$(ASM) __main.asm $(LIBDIR)data.library
+	$(ASM) __main.asm $(LIBDIR)data.library $(LIBDIR)ifloat.library
+
+run : test
+	$(EXECUTE)
 
 build: datasegment
 	$(PYTHON) $(CSCRIPTS)build.py source -rom1		
@@ -31,3 +34,6 @@ build: datasegment
 
 datasegment:
 	make -B -C $(SRCDIR)common
+
+stack:
+	$(PYTHON) $(CSCRIPTS)nstack.py 

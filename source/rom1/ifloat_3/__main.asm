@@ -11,11 +11,22 @@
 ; ************************************************************************************************
 
 		* = $1000
+		.dsection code
+
+		.section code
 
 Start:	ldx 	#$FF
 		txs
+		jsr 	ROM1_ifloat_reset
+		lda 	#42
+		jsr 	ROM1_ifloat_push_byte
+		jsr 	ROM1_ifloat_push_zero
+		lda 	#245	
+		jsr 	ROM1_ifloat_push_byte
+		jsr 	ROM1_ifloat_negate
+		jmp 	$FFFF
 
-h1:		jmp 	h1
+		.send code
 				
 ; ************************************************************************************************
 ;

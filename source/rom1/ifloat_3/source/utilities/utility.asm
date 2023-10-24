@@ -19,11 +19,49 @@
 ; ************************************************************************************************
 
 extern ifloat.reset
-
 		lda 	#$FF						; stack always points to TOS.
 		sta 	NStackPointer
 		rts
+
+; ************************************************************************************************
+;
+;							  		Push a zero on the stack
+;
+; ************************************************************************************************	
+
+extern ifloat.push.zero
+		lda 	#0
 	
+; ************************************************************************************************
+;
+;							  Push a byte constant A on the stack
+;
+; ************************************************************************************************	
+
+extern ifloat.push.byte
+		inc 	NStackPointer 				; access next stack position
+		ldx 	NStackPointer 	
+		sta 	NSMantissa0,x 				; set up the mantissa
+		stz 	NSMantissa1,x
+		stz 	NSMantissa1,x
+		stz 	NSMantissa1,x
+		stz 	NSExponent,x 				; set the exponent to zero and status to constant.
+		stz 	NSStatus,x
+		rts
+
+; ************************************************************************************************
+;
+;							  				Negate TOS
+;
+; ************************************************************************************************	
+
+extern ifloat.negate
+		ldx		NStackPointer
+		lda 	NSStatus,x
+		eor 	#$01
+		sta 	NSStatus,x
+		rts
+
 		.send code
 
 ; ************************************************************************************************
