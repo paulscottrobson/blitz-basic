@@ -1,0 +1,36 @@
+
+; 64tass Turbo Assembler Macro V1.59.3120 listing file
+; 64tass -q -c -Wall -o build/code.prg -L build/code.lst -l build/code.lbl __main.asm /home/paulr/Projects/blitz-basic/documents/../library/data.library
+; Tue Oct 24 16:34:37 2023
+
+;Offset	;Hex		;Monitor	;Source
+
+;******  Processing input file: __main.asm
+
+.1000	a2 ff		ldx #$ff	Start:	ldx 	#$FF
+.1002	9a		txs				txs
+.1003	4c 03 10	jmp $1003	h1:		jmp 	h1
+
+;******  Processing input file: /home/paulr/Projects/blitz-basic/documents/../library/data.library
+
+=8					StackSize = 8
+.0028					NSStatus:
+>0028								.fill 		StackSize
+.0030					NSMantissa:
+>0030								.fill 		StackSize
+.0038					NSExponent0:
+>0038								.fill 		StackSize
+.0040					NSExponent1:
+>0040								.fill 		StackSize
+.0048					NSExponent2:
+>0048								.fill 		StackSize
+.0050					NSExponent3:
+>0050								.fill 		StackSize
+.0058					NStackPointer:
+>0058								.fill 		1
+.0800					TaskStorageStart:
+.0800					TaskStorageEnd:
+.0059					TaskZeroStart:
+.0059					TaskZeroEnd:
+
+;******  End of listing

@@ -1,0 +1,14 @@
+NSExponent2	= $48
+NStackPointer	= $58
+NSStatus	= $28
+h1		= $1003
+NSMantissa	= $30
+NSExponent3	= $50
+Start		= $1000
+NSExponent1	= $40
+NSExponent0	= $38
+TaskZeroStart	= $59
+TaskStorageStart= $800
+StackSize	= 8
+TaskZeroEnd	= $59
+TaskStorageEnd	= $800
